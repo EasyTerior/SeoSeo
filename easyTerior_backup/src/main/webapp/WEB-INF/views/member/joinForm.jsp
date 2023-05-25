@@ -115,21 +115,21 @@ rel="stylesheet" /><!-- icons -->
 					<div class="row mb-3 position-relative">
 					    <label for="memPassword1" class="col-sm-2 col-form-label">비밀번호</label>
 					    <div class="col-sm-10">
-					        <input type="password" name="memPassword1" id="memPassword1" class="form-control" onkeyup="passwordCheck()" />
+					        <input type="password" placeholder="비밀번호 현재 패턴 적용 안 함" name="memPassword1" id="memPassword1" class="form-control" onkeyup="passwordCheck()" />
 					    </div>
 					    <div class="valid-tooltip"></div>
 					</div>
 					<div class="row mb-3 position-relative">
 					    <label for="memPassword2" class="col-sm-2 col-form-label">비밀번호 확인</label>
 					    <div class="col-sm-10">
-					        <input type="password" name="memPassword2" id="memPassword2" class="form-control" onkeyup="passwordCheck()" />
+					        <input type="password" placeholder="비밀번호 현재 패턴 적용 안 함" name="memPassword2" id="memPassword2" class="form-control" onkeyup="passwordCheck()" />
 					        <div class="valid-tooltip"></div>
 					    </div>
 					</div>
 					<div class="row mb-3">
 					    <label for="memName" class="col-sm-2 col-form-label">이름</label>
 					    <div class="col-sm-10">
-					        <input type="text" class="form-control" id="memName" required />
+					        <input type="text" placeholder="홍길동" pattern="^[ㄱ-ㅎ가-힣a-zA-Z\s]+" class="form-control" id="memName" required />
 					    </div>
 					</div>
 					<div class="row mb-3">
@@ -153,19 +153,32 @@ rel="stylesheet" /><!-- icons -->
 					<div class="row mb-3">
 					    <label for="memAddress" class="col-sm-2 col-form-label">주소</label>
 					    <input type="hidden" class="" id="memAddress" />
-					    <div class="col-md-4 input-grou position-relative">
-							<button type="button" class="btn btn-sm btn-info align-top" onclick="addressFullFill()">우편번호 찾기</button>
-					        	<input type="text" id="postcode" class="form-control"  placeholder="우편번호">
-						</div>
 					    <div class="col-sm-10">
-
-					        <input type="text" id="address" class="form-control" style="width: 300px;" placeholder="주소">
-							<input type="text" id="detailAddress" class="form-control" placeholder="상세주소">
-							<input type="text" id="extraAddress" class="form-control" placeholder="참고항목">
+					    	<div class="row mb-2">
+					    		<div class="col-auto">
+					    			<button type="button" class="btn btn-info align-top" onclick="addressFullFill()">우편번호 찾기</button>
+					    		</div>
+					    		<div class="col-auto">
+					    			<input type="text" id="postcode" class="form-control"  placeholder="우편번호" />
+					    		</div>
+					    	</div>
+					    	<div class="row">
+					    		<div class="col-auto">
+					    			<input type="text" id="address" class="form-control" style="width: 300px;" placeholder="주소" required />
+					    		</div>
+					    		<div class="col-auto">
+					    			<input type="text" id="detailAddress" class="form-control" placeholder="상세주소" />
+					    		</div>
+					    		<div class="col-auto">
+					    			<input type="text" style="
+    width: 150px;
+" id="extraAddress" class="form-control" placeholder="참고항목" />
+					    		</div>
+					    	</div>
 					    </div>
 					</div>
 					<div class="row mb-3">
-					    <div class="col-sm-10 offset-sm-2">
+					    <div class="col-sm-10 offset-sm-2 text-center">
 					        <button type="submit" class="btn btn-primary">가입하기</button>
 					    </div>
 					</div>
