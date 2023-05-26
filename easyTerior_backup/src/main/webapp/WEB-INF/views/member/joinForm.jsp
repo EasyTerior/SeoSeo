@@ -59,6 +59,16 @@ rel="stylesheet" /><!-- icons -->
 		}
 		
 	}
+	// 주소 채우기
+	function addressFill(){
+		let add1 = $("#address").val();
+		let add2 = $("#detailAddress").val();
+		let add3 = $("#extraAddress").val();
+		let fullAddress = add1+ " " + add2 + " " + add3;
+		$("#memAddress").val(fullAddress);
+		
+	}
+	
 	// invalid show
 	function validation(){
 		// Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -102,11 +112,11 @@ rel="stylesheet" /><!-- icons -->
 					<!-- CSRF token -->
 					<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }" />
 					<!-- memPassword1와 memPassword2가 일치해야만이 memPassword가 될 것 -->
-					<input type="hidden" id="memPassword" name="memPassword" />
+					<input type="hidden" id="memPassword" name=" " />
 					<div class="row mb-3">
 					    <label for="memID" class="col-sm-2 col-form-label">아이디</label>
 					    <div class="col-sm-7">
-					        <input type="text" placeholder="공백 없이 한글, 영어, 숫자로 20자 미만의 아이디만 가능합니다." pattern="^[ㄱ-ㅎ가-힣a-zA-Z0-9]+" maxlength=20 class="form-control" id="memID" />
+					        <input type="text" placeholder="공백 없이 한글, 영어, 숫자로 20자 미만의 아이디만 가능합니다." pattern="^[ㄱ-ㅎ가-힣a-zA-Z0-9]+" maxlength=20 class="form-control" id="memID" name="memID" />
 					    </div>
 					    <div class="col-sm-3">
 					        <button type="button" onclick="registerCheck()" data-bs-toggle="modal" class="btn btn-sm btn-primary" >중복확인</button>
@@ -129,30 +139,30 @@ rel="stylesheet" /><!-- icons -->
 					<div class="row mb-3">
 					    <label for="memName" class="col-sm-2 col-form-label">이름</label>
 					    <div class="col-sm-10">
-					        <input type="text" placeholder="홍길동" pattern="^[ㄱ-ㅎ가-힣a-zA-Z\s]+" class="form-control" id="memName" required />
+					        <input type="text" placeholder="홍길동" pattern="^[ㄱ-ㅎ가-힣a-zA-Z\s]+" class="form-control" id="memName" name="memName" required />
 					    </div>
 					</div>
 					<div class="row mb-3">
 					    <label for="memNickname" class="col-sm-2 col-form-label">닉네임</label>
 					    <div class="col-sm-10">
-					        <input type="text" placeholder="공백 없이 한글, 영어, 숫자로 10자 미만의 닉네임만 가능합니다." pattern="^[ㄱ-ㅎ가-힣a-zA-Z0-9]+" maxlength=10 class="form-control" id="memNickname" required />
+					        <input type="text" placeholder="공백 없이 한글, 영어, 숫자로 10자 미만의 닉네임만 가능합니다." pattern="^[ㄱ-ㅎ가-힣a-zA-Z0-9]+" maxlength=10 class="form-control" id="memNickname" name="memNickname" required />
 					    </div>
 					</div>
 					<div class="row mb-3">
 					    <label for="memPhone" class="col-sm-2 col-form-label">휴대폰 번호</label>
 					    <div class="col-sm-10">
-					        <input type="text" placeholder="000-0000-0000" pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$" class="form-control" id="memPhone" required />
+					        <input type="text" placeholder="000-0000-0000" pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$" class="form-control" id="memPhone" name="memPhone" required />
 					    </div>
 					</div>
 					<div class="row mb-3">
 					    <label for="memEmail" class="col-sm-2 col-form-label">이메일</label>
 					    <div class="col-sm-10">
-					        <input type="email" placeholder="email@email.com" pattern="^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$" class="form-control" id="memEmail" required />
+					        <input type="email" placeholder="email@email.com" pattern="^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$" class="form-control" id="memEmail" name="memEmail" required />
 					    </div>
 					</div>
 					<div class="row mb-3">
 					    <label for="memAddress" class="col-sm-2 col-form-label">주소</label>
-					    <input type="hidden" class="" id="memAddress" />
+					    <input type="hidden" name="memAddress" id="memAddress" />
 					    <div class="col-sm-10">
 					    	<div class="row mb-2">
 					    		<div class="col-auto">
@@ -164,10 +174,10 @@ rel="stylesheet" /><!-- icons -->
 					    	</div>
 					    	<div class="row">
 					    		<div class="col-auto">
-					    			<input type="text" id="address" class="form-control" style="width: 300px;" placeholder="주소" required />
+					    			<input type="text" onchange="addressFill()" id="address" class="form-control" style="width: 300px;" placeholder="주소" required />
 					    		</div>
 					    		<div class="col-auto">
-					    			<input type="text" id="detailAddress" class="form-control" placeholder="상세주소" />
+					    			<input type="text" onchange="addressFill()" id="detailAddress" class="form-control" placeholder="상세주소" />
 					    		</div>
 					    		<div class="col-auto">
 					    			<input type="text" style="
