@@ -42,7 +42,7 @@
 					    </div>
 					</div>
 					<div class="row mb-3 position-relative" style="width:600px;margin:0 auto;">
-					    <label for="memPassword1" class="col-sm-2 col-form-label">비밀번호</label>
+					    <label for="memPassword" class="col-sm-2 col-form-label">비밀번호</label>
 					    <div class="col-sm-7">
 					        <input type="password" placeholder="비밀번호를 입력해주세요." name="memPassword" id="memPassword" class="form-control" />
 					    </div>
