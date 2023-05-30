@@ -190,7 +190,6 @@ rel="stylesheet" /><!-- icons -->
 					<div class="row mb-3">
 					    <div class="col-sm-10 offset-sm-2 text-center">
 					        <button type="submit" class="btn btn-primary">가입하기</button>
-					        <button type="reset" class="btn btn-warning">취소하기</button>
 					    </div>
 					</div>
 				</form>

@@ -30,7 +30,7 @@
 	<section class="fixed-top container-fluid overflow-auto" style="height:100%;margin:137px 0 0;padding:56px 0 0 100px;">
 	<div class="container-fluid" style="min-height:100vh;margin-bottom: 200px;">
 		<div class="container-fluid">
-			<div class="mb-5"><h2 class="text-center">회원가입</h2></div>
+			<div class="mb-5"><h2 class="text-center">로그인</h2></div>
 			<div class="container m-auto" style="width:70%;">
 				<form action="login.do" method="POST" class="form container needs-validation">
 					<!-- CSRF token -->
@@ -42,7 +42,7 @@
 					    </div>
 					</div>
 					<div class="row mb-3 position-relative" style="width:600px;margin:0 auto;">
-					    <label for="memPassword" class="col-sm-2 col-form-label">비밀번호</label>
+					    <label for="memPassword1" class="col-sm-2 col-form-label">비밀번호</label>
 					    <div class="col-sm-7">
 					        <input type="password" placeholder="비밀번호를 입력해주세요." name="memPassword" id="memPassword" class="form-control" />
 					    </div>
