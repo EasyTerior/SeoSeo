@@ -90,7 +90,7 @@ public class MemberController {
 	public String login(Member mem, HttpSession session, RedirectAttributes rttr) {
 	    try {
 	        Member memInfo = memberMapper.getMember(mem.getMemID());
-	        System.out.println("login : memInfo: " + memInfo);
+	        //System.out.println("login : memInfo: " + memInfo);
 	        if (memInfo == null) {
 	            // login failure
 	            rttr.addFlashAttribute("msgType", "실패 메세지");
