@@ -36,9 +36,48 @@ position: relative;
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	<jsp:include page="../common/submenu.jsp"></jsp:include>
 	<section class="fixed-top container-fluid overflow-auto h-100" style="margin:137px 0 56px 0;padding:0 0 56px 100px;">
-		<h1 class="text-center mb-3">스타일 분석하기</h1>
+		<h1 class="text-center mt-4 mb-3">방 스타일 분석하기</h1>
 		<!-- 실질 컨텐츠 위치 -->
 		<div class="container-fluid" style="min-height:100vh;margin-bottom:200px;">
+			<div class="row m-auto" style="width:80%">
+			    <div class="col-sm-6">
+			        <div class="card border-0">
+			            <div class="card-body">
+			                <h5 class="card-title text-center fw-bold">예시 이미지</h5>
+			            </div>
+			            <img class="card-img-bottom" src="${ contextPath }/resources/images/common/StyleRoom_image_1.jpg" alt="colorChange">
+			        </div>
+			    </div>
+			    <div class="col-sm-6">
+			        <div class="card border-0 d-flex justify-content-center align-items-center">
+						<div class="card-body">
+							<h5 class="text-center fw-bold">이미지 가이드라인</h5>
+						</div>
+						<h7 class="text-center fw-bold">예시이미지처럼 방 전체가 다 보이도록 찍은 사진을<br />업로드해주세요.<br /></h7>
+						<h7 class="text-center fw-bold">다음은 적절하지 않은 사진 예시 입니다. 소품만<br />보이는 사진은 인식이 어려워요!</h7>
+						<div class="row" style="margin-top: 20px">
+							<div class="col-sm-6">
+								<img src="${ contextPath }/resources/images/common/StyleRoom_image_2.png"
+									style="width: 200px; height: 200px;" alt="myImage">
+								<h4 style="text-align: center; font-weight: bold;">(x)</h4>
+							</div>
+							<div class="col-sm-6">
+								<img src="${ contextPath }/resources/images/common/StyleRoom_image_3.png"
+									style="width: 200px; height: 200px;" alt="myImage">
+								<h4 style="text-align: center; font-weight: bold;">(x)</h4>
+							</div>
+						</div>
+					</div>
+			    </div>
+			</div>
+			<div class="row m-auto text-center" style="padding-top:50px;width:80%;">
+				<form action="" method="POST" enctype="multipart/form-data" class="text-center">
+					<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }" />
+					<label for="imgUpload" class="btn btn-primary d-block m-auto ps-2 fw-bold" style="width:260px">사진 업로드</label>
+					<input type="file" id="imgUpload" class="invisible" />
+				</form>
+			</div>
+		</div>
 	</section>
 	<jsp:include page="../common/footer.jsp"></jsp:include>
 </main>

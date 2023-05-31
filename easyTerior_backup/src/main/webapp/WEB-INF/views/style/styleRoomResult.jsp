@@ -36,33 +36,43 @@ position: relative;
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	<jsp:include page="../common/submenu.jsp"></jsp:include>
 	<section class="fixed-top container-fluid overflow-auto h-100" style="margin:137px 0 56px 0;padding:0 0 56px 100px;">
-		<h1 class="mt-4 mb-3 text-center fw-bold">소품 색 변경하기</h1>
+		<h1 class="mt-4 mb-3 text-center fw-bold">방 스타일 분석하기</h1>
 		<!-- 실질 컨텐츠 위치 -->
 		<div class="container-fluid" style="min-height:100vh;margin-bottom:200px;">
-			<div class="row m-auto" style="width:80%">
-			    <div class="col-sm-6">
-			        <div class="card border-0">
-			            <div class="card-body">
-			                <h5 class="card-title text-center fw-bold">예시 이미지</h5>
-			            </div>
-			            <img class="card-img-bottom" src="${ contextPath }/resources/images/common/colorChange.jpg" alt="colorChange">
-			        </div>
-			    </div>
-			    <div class="col-sm-6">
-			        <div class="card border-0">
-			            <div class="card-body">
-			                <h5 class="card-title text-center mb-4 fw-bold">이미지 가이드라인</h5>
-			                <p class="card-text text-center" style="padding:90px 0 0 0;">소파, 침대, 커튼, 테이블, 의자의 색을 변경해볼 수 있어요!<br/> <br/>사물의 색을 변경해보고 싶다면<br/>위 사물 중 하나 이상 포함된 사진을 업로드해주세요.<br/><br/>사물이 명확히 나온 사진만 인식이 가능합니다.</p>
-			            </div>
-			        </div>
-			    </div>
+			<h5 class="mt-5 text-center">당신의 인테리어는?</h5>
+			<h6 class="mt-4 text-center fw-bold fs-3">스칸디나비아 스타일</h6>
+			<div class="d-flex mt-5 justify-content-center align-items-center">
+				<img src="${ contextPath }/resources/images/common/styleRoom_Result_image_1.png"
+						alt="Interior Image" style="max-width: 60%;">
 			</div>
-			<div class="row text-center" style="padding-top:50px;">
-				<form action="" method="POST" enctype="multipart/form-data" class="text-center">
-					<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }" />
-					<label for="imgUpload" class="btn btn-primary d-block m-auto ps-2 fw-bold" style="width:260px">사진 업로드</label>
-					<input type="file" id="imgUpload" class="invisible" />
-				</form>
+			<div class="row">
+				<div class="col mx-10 mt-3 d-flex align-items-center justify-content-center">
+					<p class="text-center">스칸디나비아 스타일은 스칸디나비아 지역의 디자인 철학으로, 간결하고 심플한 디자인 원칙을 따릅니다.<br>밝고 넓은 공간을 선호하며, 자연 소재인 목재와 플랜트를 활용하여 자연스러운 분위기를 조성합니다.<br>중립적인 색상과 자연광을 즐기며, 기능성과 실용성을 중시하여 실용적이면서도 아름다운 공간을 만들어냅니다.</p>
+				</div>
+			</div>
+			<div class="d-flex justify-content-center align-items-center mt-3">
+				<button class="btn btn-primary">스타일 저장하기</button>
+			</div>
+			<div class="row mt-5">
+				<p class="fw-bold fs-4 text-center">이 스타일과 관련된 인테리어 소품을 추천해드릴게요!</p>
+			</div>
+			<div class="row m-auto justify-content-center" style="width:90%;">
+				<div class="col-3">
+					<a href="#" target="_blank" title="새창으로 열림"><img src="${ contextPath }/resources/images/common/styleRoom_Result_image_2.png"
+						class="img-fluid my-3 mx-2" alt="Image 1"></a>
+				</div>
+				<div class="col-3">
+					<a href="#" target="_blank" target="_blank" title="새창으로 열림"><img src="${ contextPath }/resources/images/common/styleRoom_Result_image_3.png"
+						class="img-fluid my-3 mx-2" alt="Image 2"></a>
+				</div>
+				<div class="col-3">
+					<a href="#" target="_blank" title="새창으로 열림"><img src="${ contextPath }/resources/images/common/styleRoom_Result_image_4.png"
+						class="img-fluid my-3 mx-2" alt="Image 3"></a>
+				</div>
+				<div class="col-3">
+					<a href="#" target="_blank" title="새창으로 열림"><img src="${ contextPath }/resources/images/common/styleRoom_Result_image_5.png"
+						class="img-fluid my-3 mx-2" alt="Image 4"></a>
+				</div>
 			</div>
 		</div>
 	</section>
