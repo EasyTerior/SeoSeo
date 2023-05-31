@@ -57,7 +57,6 @@ rel="stylesheet" /><!-- icons -->
 			$(".valid-tooltip").css("color","green");
 			$("#memPassword").val(memPassword1);
 		}
-		
 	}
 	// 주소 채우기
 	function addressFill(){
