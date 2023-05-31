@@ -60,6 +60,8 @@ position: relative;
 		// 첫 번째 li에 on 클래스 추가 및 첫 번째 formContainer 보여주기
         $(".updateList li:first").addClass("on");
         $("#formContainer1").show();
+        $(".updateList .on").addClass("fw-bold");
+        
         console.log('resetForm called');
         
         // 주소 처리 하기
@@ -77,8 +79,40 @@ position: relative;
 		serverMsg();
 		// 페이지 리셋 시
 		resetForm();
-		$(".updateList .on").addClass("fw-bold");
 		
+		// li 클릭 시 해당하는 formContainer 표시
+	    $("ul.updateList li").click(function() {
+	        var target = $(this).index() + 1;
+	        $(".formContainer").hide();
+	        $("#formContainer" + target).show();
+	    });
+		
+		// formContainer 내용을 비동기적으로 불러오기
+	    $(".formContainer").each(function() {
+	    	var container = $(this);
+	        var formName = container.find("form").attr("name");
+	        var formData = $("#"+formName).serialize();
+	        var formUrl = "member/" + formName;
+	    	
+	        $.ajax({
+	        	url: formUrl,
+	            type: "POST",
+	            beforeSend : function(xhr){ // xhr 에 담아서 보냄
+					xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+				},
+				data : formData, // 서버로 보낼 data가 있을 때만 사용. formData가 key=value 형식으로 다 가지고 있음.
+				// 입력만 하고 결과 반환 받을 게 있으면 // dataType : "json", 이라고 쓰고 없으면 안 씀.
+	            //dataType: "",
+	            // 성공 시
+	            success: function(response) {
+	                container.find("form").html(response);
+	            },
+	            error: function(xhr, status, error) {
+	                console.log("Error:", error);
+	            }
+	        	
+	        });
+	    });
 		
 	});
 </script>
@@ -95,7 +129,10 @@ position: relative;
 			<div class="row">
 				<div class="col-4 bg-white">
 					<input type="hidden" name=memName id="memName" value="${ memResult.memName }" />
-					<img class="img d-block m-auto" style="width:150px;" src="${ contextPath }/resources/images/common/person.png" alt="profile default">
+					<div>
+						<img class="img d-block m-auto" style="width:150px;" src="${ contextPath }/resources/images/common/person.png" alt="profile default">
+						<a href="${ contextPath }/imageForm.do" class="nav-link link-dark"><i class="bi bi-camera-fill align-middle"></i></a>
+					</div>
 					<p class="mt-3 mb-4 text-center fs-4 fw-bold ">${memResult.memName}님 환영합니다.</p>
 					<ul class="updateList m-auto" style="width:200px;">
 						<li class="mb-3 ps-2 on"><span role="button" class="link-dark text-decoration-none">개인정보 수정</span></li>
