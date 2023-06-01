@@ -72,8 +72,8 @@ public class MemberController {
 				// 회원 가입 성공 -> index.jsp 로 이동하면서 성공했다는 메세지를 띄우고 싶음 -> 성공이라는 정보를 전달
 				rttr.addFlashAttribute("msgType", "성공 메세지");
 				rttr.addFlashAttribute("msg", "회원가입에 성공하셨습니다. 환영합니다. " + mem.getMemID() + " 님!");
-				return "redirect:/"; // 1. session 쓰기 2. key=value식으로 전달 3. pathVariable 형식
-				// redirect attribute
+				return "redirect:/loginForm.do"; // 1. session 쓰기 2. key=value식으로 전달 3. pathVariable 형식
+				// 회원가입 성공 시 로그인 화면 이동
 			}
 		}
 		return null;
@@ -135,8 +135,27 @@ public class MemberController {
 
 	// 회원정보 수정 form으로 이동 기능 : 요청 URL - /updateForm.do
 	@RequestMapping("/updateForm.do")
-	public String updateForm() {
-		return "member/updateForm";
+	public String updateForm(HttpSession session, RedirectAttributes rttr) { // 로그인 여부 체크 하여 로그인 하지 않으면 loginform으로 이동하도록 추가.
+		try {
+			// 세션에 "memResult"라는 이름의 속성이 있는지 확인
+	        Object memResult = session.getAttribute("memResult");
+	        // 세션에 "memResult"라는 이름의 속성이 없다면, 즉 로그인하지 않은 사용자라면 로그인 페이지로 리다이렉트
+	        if (memResult == null) {
+	            rttr.addFlashAttribute("msgType", "주의 메세지");
+	            rttr.addFlashAttribute("msg", "해당 경로는 로그인 하신 사용자만 접근 가능합니다.");
+	            return "redirect:/loginForm.do";
+	        }else {
+	        	// 로그인한 사용자라면 수정 페이지로 이동
+	            return "member/updateForm";
+	        }
+		} catch (NullPointerException e) {
+		    // 예외가 발생했을 때 실행할 코드를 여기에 작성합니다.
+		    System.err.println("Caught Exception: " + e.getMessage());
+		    rttr.addFlashAttribute("msgType", "주의 메세지");
+            rttr.addFlashAttribute("msg", "해당 경로는 로그인 하신 사용자만 접근 가능합니다.");
+            return "redirect:/loginForm.do";
+		} 
+		
 	}
 
 	// 문제 : 회원의 정보를 수정하기. 아이디가 일치하는 회원의 비밀번호, 이름, 성별, 나이, 이메일을 변경하기. 회원정보 수정 이후
